@@ -11,11 +11,4 @@ setup(
     install_requires=[
 
     ],
-    setup_requires=[
-        'pytest-runner'
-    ],
-    tests_requires=[
-        'pytest==7.4.0'
-    ],
-    test_suite='tests',
 )
