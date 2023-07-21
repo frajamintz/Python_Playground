@@ -71,7 +71,7 @@ class  GeniusComputerPlayer(Player):
             return {'position': None, 'score': 0}
         
         if player == max_player:
-            best = {'position': None, 'score': -math.inf} #each score should maximize
+            best = {'position': None, 'score': -math.inf} # each score should maximize
         else: 
             best = {'position': None, 'score': math.inf} # each score should minimize
         
@@ -79,12 +79,12 @@ class  GeniusComputerPlayer(Player):
             # step 1: mave a move, try that spot
             state.make_move(possible_move, player)
             # step 2: recurse using minimax to simulate a game after making taht move
-            sim_score = self.minimax(state, other_player) #now, we alternate players
+            sim_score = self.minimax(state, other_player) # now, we alternate players
 
             # step 3: undo the move
             state.board[possible_move] = ' '
             state.current_winner = None
-            sim_score['position'] = possible_move #otherwise this will get messed up from the recursion
+            sim_score['position'] = possible_move # otherwise this will get messed up from the recursion
 
             # step 4: update the dictionaries if necessary
             if player == max_player:
@@ -92,6 +92,6 @@ class  GeniusComputerPlayer(Player):
                     best = sim_score # replace best
             else: # but minimize the other player
                 if sim_score['score'] < best['score']:
-                    best = sim_score #replace best
+                    best = sim_score # replace best
 
         return best
